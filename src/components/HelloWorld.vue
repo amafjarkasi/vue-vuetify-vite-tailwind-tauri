@@ -14,7 +14,7 @@
           Welcome to Vuetify
         </h1>
 
-        <v-chip class="ma-2" color="primary" @click="invokeBackend(), alert=true, getOSDetails()">
+        <v-chip class="ma-2" color="primary" @click="invokeBackend(), alert=true, getOSType()">
           Primary
         </v-chip>
 
@@ -117,9 +117,9 @@ export default {
     ],
   }),
   methods: {
-    async getOSDetails () {
+    async getOSType () {
       const invoke = window.__TAURI__.invoke
-      const response = await invoke('os_details')
+      const response = await invoke('os_type')
       console.log(response)
     },
     async invokeBackend() {

@@ -11,7 +11,7 @@ pub fn my_custom_command() {
 use std::env;
 
 #[tauri::command]
-pub fn os_details() -> &'static str {
+pub fn os_type() -> &'static str {
   return env::consts::OS;
 }
 

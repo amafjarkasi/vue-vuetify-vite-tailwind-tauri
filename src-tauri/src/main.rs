@@ -8,7 +8,7 @@ fn main() {
   tauri::Builder::default()
     .invoke_handler(tauri::generate_handler![
       command::my_custom_command,
-      command::os_details,
+      command::os_type,
       command::greeting
       ])
     .run(tauri::generate_context!())
