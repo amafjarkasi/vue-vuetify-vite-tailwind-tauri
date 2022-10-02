@@ -1,4 +1,4 @@
-# my-tauri-app
+# Vue 2 + Vuetify 2 + Vite + Tauri Starter Template
 
 ## Project setup
 ```
@@ -7,17 +7,12 @@ yarn install
 
 ### Compiles and hot-reloads for development
 ```
-yarn serve
+yarn tauri:serve
 ```
 
 ### Compiles and minifies for production
 ```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
+yarn tauri:build
 ```
 
 ### Customize configuration
