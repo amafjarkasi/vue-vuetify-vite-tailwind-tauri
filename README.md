@@ -1,4 +1,4 @@
-# Vue 2 + Vuetify 2 + Vite + Tauri Starter Template
+# Vue 2 + Vuetify 2 + Vite + Tailwind + Tauri Starter Template
 
 ## Project setup
 ```

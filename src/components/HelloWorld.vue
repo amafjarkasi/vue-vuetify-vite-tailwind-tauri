@@ -24,7 +24,7 @@
       </v-col>
 
       <v-col class="mb-5" cols="12">
-        <h2 class="headline font-weight-bold mb-3">
+        <h2 class="justify-center flex bg-yellow-300 items-center h-screen">
           What's next?
         </h2>
 

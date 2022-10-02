@@ -34,7 +34,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tauri.dev",
+      "identifier": "com.tauri.devtest",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
@@ -63,7 +63,7 @@
         "fullscreen": false,
         "height": 600,
         "resizable": true,
-        "title": "my-tauri-app",
+        "title": "Tauri Template",
         "width": 800
       }
     ]
