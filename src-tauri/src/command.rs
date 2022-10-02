@@ -8,10 +8,11 @@ pub fn my_custom_command() {
   println!("I was invoked from JS!");
 }
 
+use std::env;
+
 #[tauri::command]
-pub fn greet(name: &str) -> String {
-  println!("Greetings, {}!", name);
-  format!("Hello, {}!", name)
+pub fn os_details() -> &'static str {
+  return env::consts::OS;
 }
 
 #[tauri::command]

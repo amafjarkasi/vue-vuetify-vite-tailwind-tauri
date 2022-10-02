@@ -5,16 +5,16 @@
       <v-col cols="12">
         <!-- <v-img :src="require('../assets/logo.svg')" class="my-3" contain height="200" /> -->
       </v-col>
-    
+
       <v-col class="mb-4">
-        <v-alert v-model="alert" dismissible color="cyan" border="left" elevation="2" colored-border icon="mdi-twitter">
-          You've got <strong>5</strong> new updates on your timeline!.
-        </v-alert>
+        <v-snackbar v-model="alert">
+          Operation was successful
+        </v-snackbar>
         <h1 class="display-2 font-weight-bold mb-3">
           Welcome to Vuetify
         </h1>
 
-        <v-chip class="ma-2" color="primary" @click="invokeBackend(), alert=true">
+        <v-chip class="ma-2" color="primary" @click="invokeBackend(), alert=true, getOSDetails()">
           Primary
         </v-chip>
 
@@ -24,10 +24,6 @@
       </v-col>
 
       <v-col class="mb-5" cols="12">
-        <h2 class="justify-center flex bg-yellow-300 items-center h-screen">
-          What's next?
-        </h2>
-
         <v-row justify="center">
           <a v-for="(next, i) in whatsNext" :key="i" :href="next.href" class="subheading mx-3" target="_blank">
             {{ next.text }}
@@ -68,6 +64,7 @@ export default {
 
   data: () => ({
     alert: false,
+    invoke: window.__TAURI__.invoke,
     ecosystem: [
       {
         text: 'vuetify-loader',
@@ -120,6 +117,11 @@ export default {
     ],
   }),
   methods: {
+    async getOSDetails () {
+      const invoke = window.__TAURI__.invoke
+      const response = await invoke('os_details')
+      console.log(response)
+    },
     async invokeBackend() {
       const invoke = window.__TAURI__.invoke
       invoke('my_custom_command')
