@@ -4,6 +4,7 @@
       app
       color="primary"
       dark
+      dense
     >
       <div class="d-flex align-center">
         <v-img
@@ -32,7 +33,7 @@
         target="_blank"
         text
       >
-        <span class="mr-2">Latest Release</span>
+        <span class="mr-2">Dashboard</span>
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
     </v-app-bar>
