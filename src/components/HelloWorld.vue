@@ -59,12 +59,14 @@
 </template>
 
 <script>
+const invoke = window.__TAURI__.invoke
+
 export default {
+
   name: 'HelloWorld',
 
   data: () => ({
     alert: false,
-    invoke: window.__TAURI__.invoke,
     ecosystem: [
       {
         text: 'vuetify-loader',
@@ -117,13 +119,11 @@ export default {
     ],
   }),
   methods: {
-    async getOSType () {
-      const invoke = window.__TAURI__.invoke
+    async getOSType() {
       const response = await invoke('os_type')
       console.log(response)
     },
     async invokeBackend() {
-      const invoke = window.__TAURI__.invoke
       invoke('my_custom_command')
       const response = await invoke('greeting', { name: 'World' })
       console.log(response)
