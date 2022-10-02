@@ -3,25 +3,23 @@
   <v-container>
     <v-row class="text-center">
       <v-col cols="12">
-        <v-img :src="require('../assets/logo.svg')" class="my-3" contain height="200" />
+        <!-- <v-img :src="require('../assets/logo.svg')" class="my-3" contain height="200" /> -->
       </v-col>
-
+    
       <v-col class="mb-4">
+        <v-alert v-model="alert" dismissible color="cyan" border="left" elevation="2" colored-border icon="mdi-twitter">
+          You've got <strong>5</strong> new updates on your timeline!.
+        </v-alert>
         <h1 class="display-2 font-weight-bold mb-3">
           Welcome to Vuetify
         </h1>
 
-        <v-chip class="ma-2" color="primary" @click="invokeBackend()">
+        <v-chip class="ma-2" color="primary" @click="invokeBackend(), alert=true">
           Primary
         </v-chip>
 
         <p class="subheading font-weight-regular">
-          <v-rating
-          v-model="rating"
-          background-color="purple lighten-3"
-          color="purple"
-          large
-        ></v-rating>
+          <v-rating background-color="purple lighten-3" color="purple" large></v-rating>
         </p>
       </v-col>
 
@@ -69,6 +67,7 @@ export default {
   name: 'HelloWorld',
 
   data: () => ({
+    alert: false,
     ecosystem: [
       {
         text: 'vuetify-loader',
@@ -123,10 +122,9 @@ export default {
   methods: {
     async invokeBackend() {
       const invoke = window.__TAURI__.invoke
-      const result = await invoke('my_custom_command')
-      const response = await invoke('greet', { name: 'World' })
+      invoke('my_custom_command')
+      const response = await invoke('greeting', { name: 'World' })
       console.log(response)
-      console.log(result)
     },
   },
 }

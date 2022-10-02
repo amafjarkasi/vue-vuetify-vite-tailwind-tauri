@@ -6,7 +6,11 @@ mod command;
 
 fn main() {
   tauri::Builder::default()
-    .invoke_handler(tauri::generate_handler![command::my_custom_command,command::greet])
+    .invoke_handler(tauri::generate_handler![
+      command::my_custom_command,
+      command::greet,
+      command::greeting
+      ])
     .run(tauri::generate_context!())
     .expect("error while running tauri application");
 }

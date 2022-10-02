@@ -13,3 +13,8 @@ pub fn greet(name: &str) -> String {
   println!("Greetings, {}!", name);
   format!("Hello, {}!", name)
 }
+
+#[tauri::command]
+pub fn greeting(name: &str) -> String {
+  return format!("Hello, {}!", name)
+}
