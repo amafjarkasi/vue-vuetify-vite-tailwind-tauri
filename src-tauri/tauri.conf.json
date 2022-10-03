@@ -62,7 +62,7 @@
       {
         "fullscreen": false,
         "height": 600,
-        "resizable": true,
+        "resizable": false,
         "title": "Tauri Template",
         "width": 800
       }

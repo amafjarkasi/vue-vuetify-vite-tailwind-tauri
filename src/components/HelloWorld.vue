@@ -8,18 +8,23 @@
 
       <v-col class="mb-4">
         <v-snackbar v-model="alert">
-          Operation was successful
+          Operation completed successful
         </v-snackbar>
         <h1 class="display-2 font-weight-bold mb-3">
           Welcome to Vuetify
         </h1>
 
-        <v-chip class="ma-2" color="primary" @click="invokeBackend(), alert=true, getOSType()">
-          Primary
+        <v-chip class="ma-2" color="primary" label text-color="white">
+          <v-icon left>
+            mdi-label
+          </v-icon>
+          {{ this.osType }}
         </v-chip>
 
         <p class="subheading font-weight-regular">
-          <v-rating background-color="purple lighten-3" color="purple" large></v-rating>
+          <v-btn depressed color="primary" @click="invokeBackend(), alert=true">
+            Run
+          </v-btn>
         </p>
       </v-col>
 
@@ -67,6 +72,7 @@ export default {
 
   data: () => ({
     alert: false,
+    osType: 'LOADING...',
     ecosystem: [
       {
         text: 'vuetify-loader',
@@ -118,10 +124,16 @@ export default {
       },
     ],
   }),
+  created() {
+    this.init()
+  },
   methods: {
+    init() {
+      this.getOSType()
+    },
     async getOSType() {
       const response = await invoke('os_type')
-      console.log(response)
+      this.osType = response
     },
     async invokeBackend() {
       invoke('my_custom_command')
